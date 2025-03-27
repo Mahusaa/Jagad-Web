@@ -122,7 +122,7 @@ export default function Home() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Portfolio</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-slate-600 md:text-xl">
-                Explore our latest projects and see how we've helped businesses transform their online presence
+                Explore our latest projects and see how weve helped businesses transform their online presence
               </p>
             </div>
 
@@ -420,7 +420,7 @@ export default function Home() {
                   Ready to transform your online presence?
                 </h2>
                 <p className="text-white/80 md:text-xl">
-                  Let's create a website that drives results for your business. Schedule a free consultation today.
+                  Lets create a website that drives results for your business. Schedule a free consultation today.
                 </p>
               </div>
               <div className="flex flex-col items-start justify-center gap-4">
