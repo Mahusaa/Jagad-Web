@@ -1,113 +1,165 @@
-import { CheckCircle } from "lucide-react"
+import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
-export default function PricingSection() {
-  const pricingPlans = [
+export default function PricingPlan() {
+  // Format IDR currency
+  const formatIDR = (amount: number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount)
+  }
+
+  const pricingTiers = [
     {
       name: "Basic",
-      price: "$999",
-      description: "Perfect for small businesses just getting started",
+      description: "For small businesses just getting started",
+      initialPrice: 15000000, // Rp 15,000,000
+      annualPrice: 5000000, // Rp 5,000,000
       features: [
-        "Responsive website design",
-        "Up to 5 pages",
-        "Contact form",
-        "Mobile optimization",
+        "5-page responsive website",
         "Basic SEO setup",
+        "Contact form",
+        "Mobile-friendly design",
+        "1 round of revisions",
+        "3 months of basic support",
+        "Domain registration (1 year)",
       ],
-      cta: "Get Started",
       popular: false,
+      buttonText: "Get Started",
     },
     {
-      name: "Professional",
-      price: "$1,999",
-      description: "Ideal for growing businesses needing more features",
+      name: "Standard",
+      description: "For established businesses looking to grow",
+      initialPrice: 25000000, // Rp 25,000,000
+      annualPrice: 8000000, // Rp 8,000,000
       features: [
-        "Everything in Basic",
-        "Up to 10 pages",
-        "Content management system",
+        "10-page responsive website",
+        "Advanced SEO optimization",
         "Blog setup",
-        "Advanced SEO package",
         "Social media integration",
-        "Google Analytics setup",
+        "Email newsletter setup",
+        "3 rounds of revisions",
+        "Basic analytics setup",
+        "6 months of standard support",
+        "Domain & hosting (1 year)",
       ],
-      cta: "Choose Professional",
+      popular: false,
+      buttonText: "Get Started",
+    },
+    {
+      name: "Premium",
+      description: "For businesses requiring a comprehensive solution",
+      initialPrice: 45000000, // Rp 45,000,000
+      annualPrice: 12000000, // Rp 12,000,000
+      features: [
+        "20-page responsive website",
+        "Comprehensive SEO strategy",
+        "Content management system",
+        "E-commerce functionality",
+        "Payment gateway integration",
+        "Custom contact forms",
+        "Social media feed integration",
+        "5 rounds of revisions",
+        "Google Analytics setup",
+        "1 year of premium support",
+        "Domain & hosting (1 year)",
+        "Monthly performance reports",
+      ],
       popular: true,
+      buttonText: "Get Started",
     },
     {
       name: "Enterprise",
-      price: "$3,999",
-      description: "For established businesses requiring a comprehensive solution",
+      description: "Custom solutions for large organizations",
+      initialPrice: 100000000, // Rp 100,000,000
+      annualPrice: 25000000, // Rp 25,000,000
       features: [
-        "Everything in Professional",
         "Unlimited pages",
-        "E-commerce functionality",
-        "Custom animations",
-        "Premium SEO package",
+        "Custom web application development",
+        "Advanced e-commerce solutions",
+        "Custom API integrations",
+        "Database design & implementation",
+        "User authentication system",
+        "Advanced security features",
         "Performance optimization",
-        "Priority support",
-        "Monthly maintenance",
+        "Unlimited revisions",
+        "2 years of priority support",
+        "Domain & hosting (2 years)",
+        "Quarterly strategy meetings",
+        "Dedicated project manager",
+        "24/7 emergency support",
       ],
-      cta: "Contact Sales",
       popular: false,
+      buttonText: "Contact Us",
     },
   ]
 
   return (
-    <div className="container">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Pricing Plans</h2>
-        <p className="mx-auto mt-4 max-w-[700px] text-slate-600 md:text-xl">
-          Choose the perfect plan for your business needs
+    <div className="px-4 py-12 md:py-24 lg:py-32">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Pricing Plans</h2>
+        <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
+          Choose the perfect plan for your website development needs
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-3">
-        {pricingPlans.map((plan, index) => (
-          <div
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pricingTiers.map((tier, index) => (
+          <Card
             key={index}
-            className={`relative rounded-xl ${plan.popular ? "border-2 border-primary shadow-lg" : "border shadow-md"} bg-white p-8`}
+            className={`flex flex-col border-1 ${tier.popular ? "border-blue-500 bg-blue-50/50" : "hover:border-blue-500"} hover:shadow-lg transition-all duration-200 relative`}
           >
-            {plan.popular && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-sm font-medium text-white">
-                Most Popular
+            {tier.popular && (
+              <div className="absolute top-0 right-0 bg-blue-600 text-white px-3 py-1 text-sm font-medium rounded-bl-lg">
+                Popular
               </div>
             )}
-            <div className="mb-6">
-              <h3 className="text-xl font-bold">{plan.name}</h3>
-              <div className="mt-2 flex items-baseline">
-                <span className="text-3xl font-bold">{plan.price}</span>
-                <span className="ml-1 text-slate-600">/project</span>
+            <CardHeader className="pb-8">
+              <CardTitle className="text-2xl">{tier.name}</CardTitle>
+              <CardDescription className="pt-2">{tier.description}</CardDescription>
+              <div className="mt-4 space-y-2">
+                <div>
+                  <span className="text-3xl font-bold text-black">{formatIDR(tier.initialPrice)}</span>
+                  <span className="text-muted-foreground ml-2">initial payment</span>
+                </div>
+                <div>
+                  <span className="text-xl font-semibold">{formatIDR(tier.annualPrice)}</span>
+                  <span className="text-muted-foreground ml-2">per year after</span>
+                </div>
               </div>
-              <p className="mt-2 text-sm text-slate-600">{plan.description}</p>
-            </div>
-            <ul className="mb-6 space-y-3">
-              {plan.features.map((feature, featureIndex) => (
-                <li key={featureIndex} className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <Button
-              className={`w-full ${plan.popular ? "" : "bg-slate-800 hover:bg-slate-700"}`}
-              variant={plan.popular ? "default" : "outline"}
-            >
-              {plan.cta}
-            </Button>
-          </div>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <ul className="space-y-3">
+                {tier.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start">
+                    <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-black">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full bg-blue-600 hover:bg-blue-700">{tier.buttonText}</Button>
+            </CardFooter>
+          </Card>
         ))}
       </div>
 
-      <div className="mt-12 text-center">
-        <p className="text-slate-600">
-          Need a custom solution?{" "}
-          <a href="#" className="font-medium text-primary hover:underline">
-            Contact us
-          </a>{" "}
-          for a personalized quote.
+      <div className="text-center mt-12">
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          All plans include responsive design, SEO optimization, and a user-friendly content management system. Need
+          something custom? Contact our team for a personalized quote.
         </p>
+        <Button variant="outline" className="mt-4 border-blue-500 text-blue-600 hover:bg-blue-50">
+          Request Custom Quote
+        </Button>
       </div>
     </div>
   )
 }
+
 

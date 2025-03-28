@@ -1,5 +1,5 @@
 
-import { Star, Rocket, MonitorCog, ChevronRight, ArrowRight } from "lucide-react"
+import { Star, Rocket, ChevronRight, ArrowRight, Sparkles } from "lucide-react"
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
 
@@ -27,9 +27,9 @@ export default function HeroSection() {
             <div className="space-y-6">
               <div className="inline-flex text-white items-center rounded-lg justify-center bg-[#1E1F24] px-4 py-1 text-sm font-medium gap-2 shadow-lg shadow-black/20 border border-gray-800/50 backdrop-blur-sm">
                 <div className="bg-blue-500 rounded-lg p-1 shadow-inner">
-                  <MonitorCog className="w-3.5 h-3.5" />
+                  <Sparkles className="w-3.5 h-3.5" />
                 </div>
-                <span>Pilihan Terbaik untuk Web Development</span>
+                <span>Website Modern, Murah & Terima Beres</span>
                 <div className="bg-gray-800 rounded-full p-1 mt-1">
                   <ChevronRight className="w-3 h-3" />
                 </div>
@@ -57,7 +57,7 @@ export default function HeroSection() {
               >
                 <span className="relative z-10 flex items-center gap-2 text-base">
                   Mulai Project
-                  <Rocket className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <Rocket className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
                 </span>
 
                 <span
