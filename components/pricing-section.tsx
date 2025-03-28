@@ -1,6 +1,7 @@
 import { Check } from "lucide-react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function PricingPlan() {
   // Format IDR currency
@@ -15,25 +16,24 @@ export default function PricingPlan() {
 
   const pricingTiers = [
     {
-      name: "Basic",
-      description: "For small businesses just getting started",
-      initialPrice: 15000000, // Rp 15,000,000
-      annualPrice: 5000000, // Rp 5,000,000
+      name: "Landing Page",
+      description: "Cocok untuk UMKM yang baru merintis",
+      initialPrice: 1000000,
+      annualPrice: 750000, // Rp 5,000,000
       features: [
-        "5-page responsive website",
-        "Basic SEO setup",
+        "1 halaman responsive",
+        "Pengaturan SEO basic",
         "Contact form",
         "Mobile-friendly design",
-        "1 round of revisions",
-        "3 months of basic support",
-        "Domain registration (1 year)",
+        "1x revisi minor (foto/teks)",
+        "Domain web.id/my.id (1 tahun)",
       ],
       popular: false,
-      buttonText: "Get Started",
+      buttonText: "Hubungi Kami",
     },
     {
-      name: "Standard",
-      description: "For established businesses looking to grow",
+      name: "ComPro (Lite)",
+      description: "Company Profile untuk kamu yang memulai perusahaan profesional",
       initialPrice: 25000000, // Rp 25,000,000
       annualPrice: 8000000, // Rp 8,000,000
       features: [
@@ -51,7 +51,7 @@ export default function PricingPlan() {
       buttonText: "Get Started",
     },
     {
-      name: "Premium",
+      name: "Company Profile",
       description: "For businesses requiring a comprehensive solution",
       initialPrice: 45000000, // Rp 45,000,000
       annualPrice: 12000000, // Rp 12,000,000
@@ -111,40 +111,47 @@ export default function PricingPlan() {
         {pricingTiers.map((tier, index) => (
           <Card
             key={index}
-            className={`flex flex-col border-1 ${tier.popular ? "border-blue-500 bg-blue-50/50" : "hover:border-blue-500"} hover:shadow-lg transition-all duration-200 relative`}
+            className={`flex flex-col border-1 divide-y ${tier.popular ? "border-blue-500 bg-blue-50/50" : "hover:border-blue-500"} hover:shadow-lg transition-all duration-200 relative`}
           >
             {tier.popular && (
-              <div className="absolute top-0 right-0 bg-blue-600 text-white px-3 py-1 text-sm font-medium rounded-bl-lg">
+              <div className="absolute top-0 right-0 bg-blue-600 text-white px-3 py-1 text-sm font-medium rounded-bl-lg rounded-tr-lg">
                 Popular
               </div>
             )}
-            <CardHeader className="pb-8">
-              <CardTitle className="text-2xl">{tier.name}</CardTitle>
-              <CardDescription className="pt-2">{tier.description}</CardDescription>
-              <div className="mt-4 space-y-2">
-                <div>
-                  <span className="text-3xl font-bold text-black">{formatIDR(tier.initialPrice)}</span>
-                  <span className="text-muted-foreground ml-2">initial payment</span>
-                </div>
-                <div>
-                  <span className="text-xl font-semibold">{formatIDR(tier.annualPrice)}</span>
-                  <span className="text-muted-foreground ml-2">per year after</span>
-                </div>
+            <CardHeader className="pb-8 items-center justify-center">
+              <CardTitle>
+                <h3 className="text-2xl font-bold text-foreground">{tier.name}</h3>
+              </CardTitle>
+              <CardDescription>{tier.description}</CardDescription>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold line-through text-gray-400">{formatIDR(tier.initialPrice)}</span>
+                <span
+                  className={`text-3xl font-bold text-primary`}
+                >
+                  {formatIDR(tier.annualPrice)}
+                </span>
+                <span className="text-muted-foreground">/sampai utbk</span>
               </div>
+              <Link href={"/"}>
+                <Button
+                  className={`mt-6 w-full ${tier.popular ? "" : "text-black"}`}
+                  variant={tier.popular ? "default" : "outline"}
+                >
+                  Daftar Sekarang
+                </Button>
+              </Link>
             </CardHeader>
             <CardContent className="flex-grow">
-              <ul className="space-y-3">
+              <h4 className="text-sm font-medium text-foreground tracking-wide uppercase">Fitur yang termasuk</h4>
+              <ul className="space-y-3 mt-6">
                 {tier.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start">
                     <Check className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">{feature}</span>
+                    <span className="text-muted-foreground text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
             </CardContent>
-            <CardFooter>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">{tier.buttonText}</Button>
-            </CardFooter>
           </Card>
         ))}
       </div>

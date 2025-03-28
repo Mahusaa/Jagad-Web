@@ -2,7 +2,6 @@ import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import HeroSection from "@/components/hero-section"
-import PricingSection from "@/components/pricing-section"
 import Header from "@/components/header"
 import BentoGrid from "@/components/bento-grid"
 import PricingPlan from "@/components/pricing-section"
