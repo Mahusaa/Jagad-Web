@@ -19,12 +19,11 @@ export default function PricingPlan() {
       name: "Landing Page",
       description: "Cocok untuk UMKM yang baru merintis",
       initialPrice: 1000000,
-      annualPrice: 750000, // Rp 5,000,000
+      annualPrice: 800000, // Rp 5,000,000
       features: [
+        "Tahun Berikutnya: Rp 600.000",
         "1 halaman responsive",
         "Pengaturan SEO basic",
-        "Contact form",
-        "Mobile-friendly design",
         "1x revisi minor (foto/teks)",
         "Domain web.id/my.id (1 tahun)",
       ],
@@ -34,18 +33,16 @@ export default function PricingPlan() {
     {
       name: "ComPro (Lite)",
       description: "Company Profile untuk kamu yang memulai perusahaan profesional",
-      initialPrice: 25000000, // Rp 25,000,000
-      annualPrice: 8000000, // Rp 8,000,000
+      initialPrice: 1500000, // Rp 25,000,000
+      annualPrice: 1300000, // Rp 8,000,000
       features: [
-        "10-page responsive website",
-        "Advanced SEO optimization",
-        "Blog setup",
-        "Social media integration",
-        "Email newsletter setup",
+        "Tahun Berikutnya: Rp 1.000.000",
+        "1-3 halaman responsive",
+        "Optimisasi SEO lanjutan",
         "3 rounds of revisions",
-        "Basic analytics setup",
         "6 months of standard support",
-        "Domain & hosting (1 year)",
+        "Free hosting (1 tahun)",
+        "Free Domain .com (1 tahun)",
       ],
       popular: false,
       buttonText: "Get Started",
@@ -53,16 +50,14 @@ export default function PricingPlan() {
     {
       name: "Company Profile",
       description: "For businesses requiring a comprehensive solution",
-      initialPrice: 45000000, // Rp 45,000,000
-      annualPrice: 12000000, // Rp 12,000,000
+      initialPrice: 2500000, // Rp 45,000,000
+      annualPrice: 1800000, // Rp 12,000,000
       features: [
-        "20-page responsive website",
-        "Comprehensive SEO strategy",
-        "Content management system",
+        "Tahun Berikutnya: Rp 2.000.000",
+        "1-5 halaman responsive",
+        "Optimisasi SEO lanjutan",
         "E-commerce functionality",
-        "Payment gateway integration",
-        "Custom contact forms",
-        "Social media feed integration",
+        "Email office @namadomain.com",
         "5 rounds of revisions",
         "Google Analytics setup",
         "1 year of premium support",
@@ -120,24 +115,29 @@ export default function PricingPlan() {
             )}
             <CardHeader className="pb-8 items-center justify-center">
               <CardTitle>
-                <h3 className="text-2xl font-bold text-foreground">{tier.name}</h3>
+                <h3 className="text-2xl font-bold text-primary">{tier.name}</h3>
               </CardTitle>
               <CardDescription>{tier.description}</CardDescription>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold line-through text-gray-400">{formatIDR(tier.initialPrice)}</span>
-                <span
-                  className={`text-3xl font-bold text-primary`}
-                >
+              <div className="relative flex flex-col items-center">
+                {/* Strikethrough Initial Price */}
+                <span className="text-xl font-bold line-through text-gray-400">
+                  {formatIDR(tier.initialPrice)}
+                </span>
+
+                {/* Centered Price */}
+                <span className="text-3xl font-bold text-primary">
                   {formatIDR(tier.annualPrice)}
                 </span>
-                <span className="text-muted-foreground">/sampai utbk</span>
+                <span className="text-sm font-base text-muted-foreground">/tahun pertama</span>
+
               </div>
+
               <Link href={"/"}>
                 <Button
                   className={`mt-6 w-full ${tier.popular ? "" : "text-black"}`}
                   variant={tier.popular ? "default" : "outline"}
                 >
-                  Daftar Sekarang
+                  Pesan Sekarang
                 </Button>
               </Link>
             </CardHeader>
