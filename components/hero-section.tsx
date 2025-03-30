@@ -83,6 +83,16 @@ export default function HeroSection() {
 
 
             </div>
+            <div className="absolute top-1/4 right-0 w-64 h-96 translate-x-1/3 -translate-y-1/4 rotate-6">
+              <div className="w-full h-full bg-orange-200 rounded-xl p-4">
+                <div className="text-lg font-bold">Elevate Your Brand with Data</div>
+                <div className="text-sm mb-4">Driven Marketing</div>
+                <div className="flex gap-4 mt-8">
+                  <div className="w-16 h-16 bg-purple-700 rounded-lg"></div>
+                  <div className="w-16 h-16 bg-orange-700 rounded-lg"></div>
+                </div>
+              </div>
+            </div>
 
             <div className="flex flex-row items-center gap-4 justify-center">
               <div className="relative">

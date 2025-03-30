@@ -43,6 +43,20 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <div className="relative h-64 w-64 overflow-hidden border">
+          <div className="absolute w-full animate-loop-scroll">
+            <div className="space-y-4">
+              {Array.from({ length: 10 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="w-64 p-4 text-center bg-white border rounded shadow"
+                >
+                  Item {i + 1}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </main>
       <footer className="border-t bg-white">
         <div className="container py-12 md:py-16">
