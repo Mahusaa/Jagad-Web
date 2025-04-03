@@ -1,5 +1,5 @@
 
-import { Star, Rocket, ChevronRight, ArrowRight, Sparkles } from "lucide-react"
+import { Star, Rocket, ChevronRight, Sparkles } from "lucide-react"
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
 
@@ -66,32 +66,8 @@ export default function HeroSection() {
                 />
               </Button>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="relative py-7 px-8 w-full sm:w-auto font-semibold
-    border-gray-300 bg-white
-    shadow-md text-gray-900
-    transition-all duration-300 hover:translate-y-[-2px] 
-    rounded-xl group"
-              >
-                <span className="relative z-10 flex items-center gap-2 text-base">
-                  Portfolio Kami
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-gray-900" />
-                </span>
-              </Button>
 
 
-            </div>
-            <div className="absolute top-1/4 right-0 w-64 h-96 translate-x-1/3 -translate-y-1/4 rotate-6">
-              <div className="w-full h-full bg-orange-200 rounded-xl p-4">
-                <div className="text-lg font-bold">Elevate Your Brand with Data</div>
-                <div className="text-sm mb-4">Driven Marketing</div>
-                <div className="flex gap-4 mt-8">
-                  <div className="w-16 h-16 bg-purple-700 rounded-lg"></div>
-                  <div className="w-16 h-16 bg-orange-700 rounded-lg"></div>
-                </div>
-              </div>
             </div>
 
             <div className="flex flex-row items-center gap-4 justify-center">
