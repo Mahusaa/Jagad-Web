@@ -1,4 +1,5 @@
 
+import { Badge } from "./ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Check, X, Info } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
@@ -16,18 +17,18 @@ type Feature = {
 export default function PricingTabs() {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8 sm:py-12">
-      <div className="text-center mb-8 sm:mb-12">
-        <h1 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-3 sm:mb-4">Web Development Solutions</h1>
-        <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-          Choose the perfect plan for your business needs. We offer specialized solutions for landing pages, company
-          websites, and e-commerce platforms.
+      <div className="text-center mb-16">
+        <div className="mb-2 flex justify-center">
+          <Badge variant="outline" className="rounded-full px-4 py-1 text-xs">
+            ✨ Harga Transparan ✨
+          </Badge>
+        </div>
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+          Choose the Right <span className="text-blue-800">Plan</span>
+        </h2>
+        <p className="mt-4 max-w-2xl mx-auto text-gray-600">
+          Flexible pricing options to suit businesses of all sizes. No hidden fees, just transparent pricing.
         </p>
-        <div className="mt-4 inline-block bg-blue-50 text-blue-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
-          Annual Plans - Lock in your rate for 12 months
-        </div>
-        <div className="mt-3 inline-block bg-red-50 text-red-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
-          Limited Time Offer: Save up to 40% on all plans
-        </div>
       </div>
 
       <Tabs defaultValue="landing" className="w-full">
@@ -104,7 +105,7 @@ export default function PricingTabs() {
                 enterprise: true,
               },
             ]}
-            currentYearPrices={["Rp 700k", "Rp 1000k", "Rp 1200k", "Custom"]}
+            currentYearPrices={["Rp 900k", "Rp 1200k", "Rp 1500k", "Custom"]}
             originalPrices={["Rp 800k", "Rp 1200k", "Rp 1500k", "Not determine"]}
             discounts={["40%", "40%", "41%", "Custom"]}
             nextYearPrices={["Rp 500k", "Rp 800k", "Rp 1000k", "Not Determine"]}
