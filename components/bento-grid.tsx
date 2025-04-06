@@ -1,6 +1,5 @@
-import { PhoneCall, Check, ArrowRight, Sparkles, Code, Zap, Globe, Layers, Smartphone, Monitor, Lock } from "lucide-react"
+import { PhoneCall, Check, Code, Zap, Globe, Layers, Smartphone, Monitor, Lock } from "lucide-react"
 import { Badge } from "./ui/badge"
-import Image from "next/image"
 
 export default function BentoGrid() {
   return (
@@ -24,28 +23,83 @@ export default function BentoGrid() {
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
         {/* Main Feature Card */}
-        <div className="md:col-span-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-8 shadow-lg border border-blue-700/30 transition-all duration-300 hover:shadow-xl group">
-          <div className="flex flex-col md:flex-row md:items-center gap-8">
-            <div className="md:w-3/5">
-              <div className="flex items-center space-x-1 mb-3">
-                <Sparkles className="h-5 w-5 text-blue-200" />
-                <span className="text-blue-200 text-sm font-medium ml-1">Layanan Premium</span>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Custom Web Development</h2>
-              <p className="mb-6 text-blue-100 text-base md:text-lg leading-relaxed">
-                We build tailored websites and web applications that perfectly align with your business goals.
-              </p>
-              <a href="#" className="inline-flex items-center px-5 py-2.5 bg-white text-blue-700 rounded-lg font-medium text-sm transition-all hover:bg-blue-50 group-hover:translate-x-1">
-                Lihat Portfolio Kami<ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </a>
+        <div className="relative md:col-span-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl p-8 shadow-lg border border-blue-700/30 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+          {/* Decorative Circles */}
+          <div className="absolute top-4 left-4 w-24 h-24 rounded-full bg-blue-500 opacity-20"></div>
+          <div className="absolute bottom-4 right-8 w-36 h-36 rounded-full bg-blue-500 opacity-20"></div>
+
+          {/* Circuit Lines */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute w-36 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent top-8 -left-12 rotate-45" />
+            <div className="absolute w-28 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent bottom-12 left-5 -rotate-30" />
+            <div className="absolute w-44 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent top-16 -left-5 rotate-15" />
+            <div className="absolute w-1 h-1 rounded-full bg-blue-400 top-8 left-10 animate-pulse" />
+            <div className="absolute w-1 h-1 rounded-full bg-blue-400 bottom-12 left-24 animate-pulse delay-1000" />
+            <div className="absolute w-1 h-1 rounded-full bg-blue-400 top-16 left-28 animate-pulse delay-500" />
+          </div>
+
+          {/* Particles */}
+          <div className="absolute w-2 h-0.5 rounded-full bg-blue-400 top-28 left-12 opacity-0 animate-[move-particle_6s_infinite_0.2s]" />
+          <div className="absolute w-2 h-0.5 rounded-full bg-blue-400 top-44 left-28 opacity-0 animate-[move-particle_7s_infinite_1.5s]" />
+          <div className="absolute w-2 h-0.5 rounded-full bg-blue-400 top-16 left-48 opacity-0 animate-[move-particle_8s_infinite_3s]" />
+
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+
+          {/* Content */}
+          <div className="relative z-10 space-y-6">
+            {/* Badge */}
+            <div className="flex items-center gap-2 text-sm opacity-90">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+                <path d="M12 2L14.39 7.26L20 8.27L16 12.14L17.18 17.73L12 15.13L6.82 17.73L8 12.14L4 8.27L9.61 7.26L12 2Z" fill="white" />
+              </svg>
+              Layanan Premium
             </div>
-            <div className="md:w-2/5 relative h-48 md:h-64 rounded-xl overflow-hidden transform transition-transform duration-500 group-hover:scale-105">
-              <Image
-                src="/bento-tryout.png"
-                alt="Custom Web Development"
-                fill
-                className="object-cover"
-              />
+
+            {/* Title and Description */}
+            <h1 className="text-4xl font-bold">Custom Web Development</h1>
+            <p className="text-lg leading-relaxed max-w-xl">
+              We build tailored websites and web applications that perfectly align with your business goals.
+            </p>
+
+            {/* CTA */}
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 bg-white/90 text-blue-700 rounded-full px-6 py-3 font-semibold transition-all duration-300 hover:bg-white hover:shadow-lg hover:shadow-blue-800/20 group-hover:-translate-y-1"
+            >
+              Lihat Portfolio Kami
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+          {/* Floating Code Block */}
+          <div className="absolute w-32 h-28 bg-gray-900/80 rounded-xl right-40 bottom-20 border border-blue-500/30 backdrop-blur z-2 shadow-lg overflow-hidden transition-all duration-500 group-hover:rotate-[-5deg] group-hover:-translate-y-3">
+            <div className="h-1.5 bg-blue-500 w-2/3 rounded mx-2 my-3" />
+            <div className="h-1.5 bg-blue-500/30 w-11/12 rounded mx-2 my-2" />
+            <div className="h-1.5 bg-blue-500/30 w-3/5 rounded mx-2 my-2" />
+            <div className="h-1.5 bg-blue-500/30 w-4/5 rounded mx-2 my-2" />
+          </div>
+
+          {/* Floating Browser Preview */}
+          <div className="absolute w-48 h-36 bg-gray-900/80 rounded-xl right-4 top-36 border border-blue-500/30 backdrop-blur shadow-lg overflow-hidden transition-all duration-500 group-hover:rotate-[10deg] group-hover:-translate-y-2 z-8">
+            <div className="h-5 bg-gray-800/90 flex items-center px-2 border-b border-blue-500/30">
+              <div className="w-1.5 h-1.5 bg-red-500 rounded-full mr-1" />
+              <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-1" />
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+            </div>
+            <div className="p-2 space-y-1.5">
+              <div className="h-2 bg-blue-500 w-3/5 rounded" />
+              <div className="h-2 bg-blue-500/30 w-11/12 rounded" />
+              <div className="h-2 bg-blue-400 w-7/12 rounded" />
+              <div className="h-2 bg-blue-500/30 w-4/5 rounded" />
+              <div className="h-2 bg-blue-500/30 w-9/12 rounded" />
+              <div className="h-2 bg-blue-500 w-2/5 rounded" />
             </div>
           </div>
         </div>

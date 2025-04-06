@@ -192,6 +192,8 @@ export default function HeroSection() {
               priority
               className="ml-10 md:ml-20 drop-shadow-[0px_0px_50px_rgba(255,255,255,0.2)]"
             />
+
+
           </div>
 
           {/* Moving wave pattern at bottom */}
@@ -217,6 +219,11 @@ export default function HeroSection() {
             </svg>
           </div>
         </div>
+      </div>
+      <div className="absolute -bottom-10 left-0 w-full overflow-hidden leading-none">
+        <svg viewBox="0 0 1440 320" className="w-full h-32" preserveAspectRatio="none">
+          <path fill="#FFFFFF" d="M0,160 C480,320 960,0 1440,160 L1440,320 L0,320 Z"></path>
+        </svg>
       </div>
 
       {/* Custom animation keyframes to be added to your global CSS */}

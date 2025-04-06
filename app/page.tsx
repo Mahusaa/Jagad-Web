@@ -16,10 +16,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-
         <OurService />
-
-
         <BentoGrid />
         <Testimonial />
         <PricingTabs />
