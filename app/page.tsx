@@ -24,7 +24,6 @@ export default function Home() {
         <Whatsapp />
 
 
-        {/* CTA Section */}
         <section className="container py-24">
           <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-white md:p-16 shadow-lg">
             <div className="grid gap-10 md:grid-cols-2">

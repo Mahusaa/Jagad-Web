@@ -129,23 +129,244 @@ export default function BentoGrid() {
         </div>
 
         {/* Performance Card */}
-        <div className="md:col-span-4 bg-white rounded-3xl p-8 shadow-md border border-slate-100 transition-all duration-300 hover:shadow-lg group">
+        <div className="md:col-span-4 bg-white rounded-3xl p-8 pb-0 shadow-md border border-slate-100 transition-all duration-300 hover:shadow-lg group">
           <div className="mb-4 p-3 bg-blue-50 rounded-2xl inline-block">
             <Zap className="h-6 w-6 text-blue-600" />
           </div>
           <h2 className="text-2xl font-bold mb-3 text-slate-900">High Performance</h2>
-          <p className="mb-6 text-slate-600 text-base leading-relaxed">
-            Lightning-fast websites optimized for speed, ensuring excellent user experience and better search rankings.
-          </p>
-          <div className="bg-slate-50 rounded-2xl p-4 mt-auto">
-            <div className="flex justify-between mb-2">
-              <span className="text-xs text-slate-500">Page load speed</span>
-              <span className="text-xs font-medium text-blue-700">Under 2s</span>
-            </div>
-            <div className="w-full bg-slate-200 rounded-full h-2">
-              <div className="bg-blue-600 h-2 rounded-full w-4/5"></div>
-            </div>
+
+          {/* Illustration */}
+          <div className="mb-6 overflow-hidden rounded-lg">
+            <svg className="w-full h-48" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Background */}
+              <defs>
+                <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#dbeafe" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#bfdbfe" stopOpacity="0.1" />
+                </linearGradient>
+                <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                </radialGradient>
+                <linearGradient id="serverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#3b82f6" />
+                  <stop offset="100%" stopColor="#2563eb" />
+                </linearGradient>
+                <linearGradient id="deviceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#3b82f6" />
+                  <stop offset="100%" stopColor="#2563eb" />
+                </linearGradient>
+
+                {/* Data Transfer Animation */}
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="2" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              {/* Background */}
+              <rect width="400" height="200" fill="#f0f9ff" />
+              <path d="M0 100C100 80 300 120 400 100V200H0V100Z" fill="#dbeafe" />
+              <path d="M0 120C100 100 300 140 400 120V200H0V120Z" fill="#bfdbfe" opacity="0.7" />
+
+              {/* Grid Lines */}
+              <rect width="400" height="200" fill="url(#gridGradient)" />
+              <g opacity="0.15">
+                {[0, 40, 80, 120, 160, 200, 240, 280, 320, 360, 400].map((x, i) => (
+                  <line key={`vline-${i}`} x1={x} y1="0" x2={x} y2="200" stroke="#3b82f6" strokeWidth="1" />
+                ))}
+                {[0, 40, 80, 120, 160, 200].map((y, i) => (
+                  <line key={`hline-${i}`} x1="0" y1={y} x2="400" y2={y} stroke="#3b82f6" strokeWidth="1" />
+                ))}
+              </g>
+
+              {/* Glow Effects */}
+              <circle cx="200" cy="80" r="60" fill="url(#glowGradient)" className="transition-opacity duration-700 opacity-30 group-hover:opacity-70" />
+
+              {/* Server/Cloud Element */}
+              <g className={`transition-transform duration-500 group-hover:translate-y-2`}>
+                <rect x="50" y="60" width="80" height="40" rx="5" fill="url(#serverGradient)" />
+                <rect x="60" y="70" width="20" height="5" rx="2" fill="#dbeafe" />
+                <rect x="60" y="80" width="30" height="5" rx="2" fill="#dbeafe" />
+                <circle cx="100" cy="75" r="8" fill="#dbeafe" />
+                <circle cx="100" cy="75" r="4" fill="#3b82f6" />
+
+                <circle className={`transition-opacity duration-500 opacity-0 group-hover:opacity-50`} cx="90" cy="60" r="15" fill="#60a5fa" opacity="0.2" />
+              </g>
+
+              {/* Enhanced Data Transfer Animation */}
+              <g filter="url(#glow)">
+                {/* Main Connection Line */}
+                <path d="M130 80 L270 80" stroke="#93c5fd" strokeWidth="1.5" strokeDasharray="0" />
+
+                {/* Animated Particles - Fast Direction */}
+                <g className="transition-all duration-300">
+                  <circle
+                    className="transition-all duration-[1000ms] opacity-40 group-hover:opacity-90 group-hover:translate-x-32"
+                    cx="150" cy="80" r="2.5" fill="#60a5fa"
+                  />
+                  <circle
+                    className="transition-all duration-[700ms] opacity-40 group-hover:opacity-90 group-hover:translate-x-40"
+                    cx="160" cy="80" r="2" fill="#60a5fa"
+                  />
+                  <circle
+                    className="transition-all duration-[1400ms] opacity-40 group-hover:opacity-90 group-hover:translate-x-24"
+                    cx="170" cy="80" r="3" fill="#3b82f6"
+                  />
+                  <circle
+                    className="transition-all duration-[900ms] opacity-40 group-hover:opacity-90 group-hover:translate-x-32"
+                    cx="180" cy="80" r="1.5" fill="#60a5fa"
+                  />
+                  <circle
+                    className="transition-all duration-[1200ms] opacity-40 group-hover:opacity-90 group-hover:translate-x-28"
+                    cx="190" cy="80" r="2" fill="#60a5fa"
+                  />
+                </g>
+
+
+                {/* Animated Particles - Reverse Direction */}
+                <g className="transition-all duration-300">
+                  <circle
+                    className="transition-all duration-[1000ms] opacity-40 group-hover:opacity-90 group-hover:-translate-x-32"
+                    cx="250" cy="80" r="2" fill="#60a5fa"
+                  />
+                  <circle
+                    className="transition-all duration-[1300ms] opacity-40 group-hover:opacity-90 group-hover:-translate-x-28"
+                    cx="240" cy="80" r="1.5" fill="#60a5fa"
+                  />
+                  <circle
+                    className="transition-all duration-[800ms] opacity-40 group-hover:opacity-90 group-hover:-translate-x-36"
+                    cx="230" cy="80" r="2.5" fill="#3b82f6"
+                  />
+                  <circle
+                    className="transition-all duration-[1100ms] opacity-40 group-hover:opacity-90 group-hover:-translate-x-24"
+                    cx="220" cy="80" r="2" fill="#60a5fa"
+                  />
+                </g>
+
+                {/* Connection Points */}
+                <circle
+                  cx="130" cy="80" r="4" fill="#3b82f6"
+                  className="transition-all duration-500 opacity-70 group-hover:opacity-100"
+                />
+                <circle
+                  cx="130" cy="80" r="6" fill="#3b82f6"
+                  className="transition-all duration-500 opacity-10 group-hover:opacity-30"
+                />
+
+                <circle
+                  cx="270" cy="80" r="4" fill="#3b82f6"
+                  className="transition-all duration-500 opacity-70 group-hover:opacity-100"
+                />
+                <circle
+                  cx="270" cy="80" r="6" fill="#3b82f6"
+                  className="transition-all duration-500 opacity-10 group-hover:opacity-30"
+                />
+              </g>
+
+              {/* Data Flow Indicators */}
+              <path
+                d="M160 70 L165 75 L160 80"
+                stroke="#3b82f6"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-all duration-300 opacity-40 group-hover:opacity-100 translate-y-1"
+              />
+              <path
+                d="M240 70 L235 75 L240 80"
+                stroke="#3b82f6"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-all duration-300 opacity-40 group-hover:opacity-100 translate-y-1"
+              />              {/* Browser/Device Element */}
+              <g className="transition-transform duration-500 group-hover:-translate-y-2">
+                <rect x="270" y="50" width="100" height="60" rx="5" fill="url(#deviceGradient)" />
+                <rect x="275" y="55" width="90" height="40" rx="2" fill="white" />
+                <rect x="275" y="100" width="25" height="5" rx="2" fill="#dbeafe" />
+                <rect x="305" y="100" width="25" height="5" rx="2" fill="#dbeafe" />
+                <rect x="335" y="100" width="25" height="5" rx="2" fill="#dbeafe" />
+                <path d="M280 65 L325 65 M280 70 L320 70 M280 75 L315 75" stroke="#dbeafe" strokeWidth="2" strokeLinecap="round" />
+
+                <path
+                  d="M340 75 L355 75 L355 85 L340 85 Z"
+                  stroke="#bfdbfe"
+                  strokeWidth="2"
+                  className="transition-all duration-700 stroke-blue-300 group-hover:stroke-blue-600"
+                />
+
+                <circle
+                  cx="320"
+                  cy="50"
+                  r="15"
+                  fill="#60a5fa"
+                  opacity="0.2"
+                  className="transition-opacity duration-500 opacity-0 group-hover:opacity-50"
+                />
+              </g>
+              {/* Speed Metrics Line with Animated Dots */}
+              <path
+                d="M100 200 A100 100 0 0 1 300 200"
+                fill="none"
+                stroke="#3b82f6"
+                strokeWidth="8"
+                strokeLinecap="round"
+                className="opacity-80"
+              />
+
+              {/* Ticks & Labels */}
+              {[...Array(5)].map((_, i) => {
+                const angleDeg = -90 + i * 18;
+                const angle = angleDeg * (Math.PI / 180);
+                const outerX = 200 + Math.cos(angle) * 100;
+                const outerY = 200 + Math.sin(angle) * 100;
+                const innerX = 200 + Math.cos(angle) * 90;
+                const innerY = 200 + Math.sin(angle) * 90;
+
+                const labelX = 200 + Math.cos(angle) * 75;
+                const labelY = 200 + Math.sin(angle) * 75;
+
+                return (
+                  <g key={i} className="text-[10px] fill-blue-500">
+                    <line
+                      x1={innerX} y1={innerY}
+                      x2={outerX} y2={outerY}
+                      stroke="#3b82f6"
+                      strokeWidth="2"
+                    />
+                    <text
+                      x={labelX}
+                      y={labelY + 4}
+                      textAnchor="middle"
+                    >
+                      {i * 100}ms
+                    </text>
+                  </g>
+                );
+              })}
+
+              {/* Needle (static at 200ms position here, customize angle for dynamic) */}
+              <line
+                x1="200" y1="200"
+                x2="230" y2="170"
+                stroke="#ef4444"
+                strokeWidth="3"
+                strokeLinecap="round"
+                className="transition-transform duration-500 origin-[200px_200px] group-hover:rotate-[15deg] opacity-60"
+              />
+              <text
+                x="200"
+                y="160"
+                textAnchor="middle"
+                className="text-xs font-medium fill-blue-600 opacity-85"
+              >
+                {"Page Load < 1s"}
+              </text>
+            </svg>
           </div>
+
+
         </div>
 
         {/* Technology Stack Card */}
